@@ -1,6 +1,6 @@
 # sk0711-graph
 
-A [Hammerhead Karoo](https://hammerhead.io/) extension that adds two graphical data fields showing the recent history of heart rate and power as a zone-colored curve — Garmin Edge style.
+A [Hammerhead Karoo](https://hammerhead.io/) extension that adds two graphical data fields showing the recent history of heart rate and power as a zone-colored curve.
 
 Tested on Karoo 3, compatible with Karoo 2.
 

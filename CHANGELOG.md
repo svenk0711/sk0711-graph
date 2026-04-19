@@ -48,6 +48,6 @@ Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this p
 ## [0.1.0] — initial
 
 - Rendering pipeline: `GraphGeometry`, `GraphRenderer`, `ZoneColors`, `DataBuffer`, `TimeWindow`, `Sample`, `SyntheticData`.
-- Two graphical data fields (HR and Power) with Garmin-style layout: current value with icon, AVG/MAX column, window label, zone-colored curve with filled area.
+- Two graphical data fields (HR and Power): current value with icon, AVG/MAX column, window label, zone-colored curve with filled area.
 - Compose preview (`MainScreen`) with synthetic data.
 - JUnit tests for `GraphGeometry`.
