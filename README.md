@@ -32,6 +32,10 @@ Then in the Karoo ride-page editor, open the data field picker, find **sk0711-gr
 - Tap the field to cycle the visible time window (1 min → 5 min → Full).
 - Zones come from the Karoo's own HR-zone and power-zone configuration (set under the rider profile).
 
+## Known issues
+
+- Tap-to-toggle sometimes does not react or reacts with a delay. A tap may be missed entirely or the window may cycle only after a short pause. Tap again if nothing happens.
+
 ## Build from source
 
 Requirements: Android Studio (Giraffe or later) and a GitHub Personal Access Token with `read:packages` scope — the `karoo-ext` SDK is hosted on GitHub Packages.
