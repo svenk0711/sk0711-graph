@@ -35,6 +35,7 @@ Then in the Karoo ride-page editor, open the data field picker, find **sk0711-gr
 ## Known issues
 
 - Tap-to-toggle sometimes does not react or reacts with a delay. A tap may be missed entirely or the window may cycle only after a short pause. Tap again if nothing happens.
+- Layout scaling is not yet ideal: at certain field heights/widths, the **1min / 5min / Full** window label can be overlapped by the current HR or power value.
 
 ## Build from source
 
