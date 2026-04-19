@@ -31,6 +31,16 @@ adb install -r sk0711-graph-0.1.3-debug.apk
 
 Then in the Karoo ride-page editor, open the data field picker, find **sk0711-graph**, and add **HR Zone Graph** and/or **Power Zone Graph** to a page.
 
+## Uninstall
+
+On the Karoo itself (no ADB needed):
+
+1. Main menu → **Settings**
+2. Scroll to the bottom and open **System Info / Android Settings** (exact label depends on firmware)
+3. Open **Apps**
+4. Select **sk0711-graph** from the list
+5. Tap **Uninstall**
+
 ## Usage
 
 - Tap the field to cycle the visible time window (1 min → 5 min → Full).
