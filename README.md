@@ -16,13 +16,13 @@ Tested on Karoo 3, compatible with Karoo 2.
 
 ## Install
 
-Download the latest `sk0711-graph-<version>-debug.apk` from the [Releases](../../releases) page.
+Download `sk0711-graph-1.3-debug.apk` from the [Releases](../../releases) page.
 
 **Karoo 3:** share the APK link via the Companion app, or install via ADB over USB.
 **Karoo 2:** install via ADB:
 
 ```
-adb install -r sk0711-graph-<version>-debug.apk
+adb install -r sk0711-graph-1.3-debug.apk
 ```
 
 Then in the Karoo ride-page editor, open the data field picker, find **sk0711-graph**, and add **HR Zone Graph** and/or **Power Zone Graph** to a page.
@@ -49,7 +49,7 @@ Then:
 ./gradlew assembleDebug
 ```
 
-Output: `app/build/outputs/apk/debug/sk0711-graph-<version>-debug.apk`.
+Output: `app/build/outputs/apk/debug/sk0711-graph-1.3-debug.apk`.
 
 ## License
 
