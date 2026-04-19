@@ -11,8 +11,6 @@ Tested on Karoo 3, compatible with Karoo 2.
 - Current value, average, and max shown alongside the curve. AVG/MAX are read from the Karoo's own streams (`AVERAGE_HR`, `MAX_HR`, `AVERAGE_POWER`, `MAX_POWER`) so they match the values other data fields on the same page display.
 - **Tap a field** to cycle its time window: 1 min → 5 min → Full ride. Each field keeps its own window.
 - Power curve uses a 3-second rolling average (HR is not smoothed).
-- Respects `RideState.Paused`: during auto-pause or manual pause, the curve stops extending.
-- Survives Karoo dark/light theme changes without losing the already-drawn curve.
 
 ## Install
 
