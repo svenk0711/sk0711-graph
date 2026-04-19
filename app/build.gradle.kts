@@ -12,7 +12,7 @@ android {
         applicationId = "com.sk0711.graph"
         minSdk = 23
         targetSdk = 34
-        versionCode = 4
+        versionCode = 1
         versionName = "0.1.3"
     }
 
