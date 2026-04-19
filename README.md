@@ -4,6 +4,10 @@ A [Hammerhead Karoo](https://hammerhead.io/) extension that adds two graphical d
 
 Tested on Karoo 3, compatible with Karoo 2.
 
+<p align="center">
+  <img src="sample1.jpg" alt="Two zone-graph data fields on a Karoo 3 during a ride — HR 133 bpm with a red/orange curve, Power 250 W with a multi-colored zone curve" width="360">
+</p>
+
 ## Features
 
 - **HR Zone Graph** and **Power Zone Graph** as separate graphical data fields.
