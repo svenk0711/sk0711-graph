@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">template</string>
+    <string name="app_name">sk0711-graph</string>
     <string name="hello_karoo">Hello Karoo!</string>
-    <string name="extension_name">template</string>
+    <string name="extension_name">sk0711-graph</string>
+    <string name="hr_field_name">HR Zone Graph</string>
+    <string name="hr_field_desc">Heart rate curve with zone coloring</string>
+    <string name="power_field_name">Power Zone Graph</string>
+    <string name="power_field_desc">Power curve with zone coloring</string>
 </resources>

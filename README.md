@@ -1,19 +1,56 @@
-# Karoo Extensions (Template)
+# sk0711-graph
 
-Template repository for empty app with Karoo Extension service.
+A [Hammerhead Karoo](https://hammerhead.io/) extension that adds two graphical data fields showing the recent history of heart rate and power as a zone-colored curve — Garmin Edge style.
 
-## Instructions
+Tested on Karoo 3, compatible with Karoo 2.
 
-1. Clone this repository or "Use this template" on Github
-2. Update namespace in `build.gradle.kt` and `app/src/main/kotlin`
-3. Replace "template" values in `strings.xml`, `extension_info.xml`, `AndroidManifest.xml`
-4. Implement Android app experience (in `MainActivity.kt`)
-5. Implement extension functionality in `TemplateExtension.kt`
+## Features
 
-## Links
+- **HR Zone Graph** and **Power Zone Graph** as separate graphical data fields.
+- Curve color follows the Karoo zone of each sample (5 HR zones, 7 power zones).
+- Current value, average, and max shown alongside the curve. AVG/MAX are read from the Karoo's own streams (`AVERAGE_HR`, `MAX_HR`, `AVERAGE_POWER`, `MAX_POWER`) so they match the values other data fields on the same page display.
+- **Tap a field** to cycle its time window: 1 min → 5 min → Full ride. Each field keeps its own window.
+- Power curve uses a 3-second rolling average (HR is not smoothed).
+- Respects `RideState.Paused`: during auto-pause or manual pause, the curve stops extending.
+- Survives Karoo dark/light theme changes without losing the already-drawn curve.
 
-[Documentation](https://hammerheadnav.github.io/karoo-ext/index.html)
+## Install
 
-[karoo-ext source](https://github.com/hammerheadnav/karoo-ext)
+Download the latest `sk0711-graph-<version>-debug.apk` from the [Releases](../../releases) page.
 
-[Sample](https://github.com/hammerheadnav/karoo-ext/tree/master/app)
+**Karoo 3:** share the APK link via the Companion app, or install via ADB over USB.
+**Karoo 2:** install via ADB:
+
+```
+adb install -r sk0711-graph-<version>-debug.apk
+```
+
+Then in the Karoo ride-page editor, open the data field picker, find **sk0711-graph**, and add **HR Zone Graph** and/or **Power Zone Graph** to a page.
+
+## Usage
+
+- Tap the field to cycle the visible time window (1 min → 5 min → Full).
+- Zones come from the Karoo's own HR-zone and power-zone configuration (set under the rider profile).
+
+## Build from source
+
+Requirements: Android Studio (Giraffe or later) and a GitHub Personal Access Token with `read:packages` scope — the `karoo-ext` SDK is hosted on GitHub Packages.
+
+Add credentials to `local.properties`:
+
+```
+gpr.user=YOUR_GITHUB_USERNAME
+gpr.key=YOUR_GITHUB_TOKEN
+```
+
+Then:
+
+```
+./gradlew assembleDebug
+```
+
+Output: `app/build/outputs/apk/debug/sk0711-graph-<version>-debug.apk`.
+
+## License
+
+[Apache License 2.0](LICENSE).

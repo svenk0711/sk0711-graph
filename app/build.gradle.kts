@@ -5,15 +5,15 @@ plugins {
 }
 
 android {
-    namespace = "io.hammerhead.karooexttemplate"
+    namespace = "com.sk0711.graph"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "io.hammerhead.karooexttemplate"
+        applicationId = "com.sk0711.graph"
         minSdk = 23
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 4
+        versionName = "1.3"
     }
 
     buildTypes {
@@ -32,6 +32,13 @@ android {
     buildFeatures {
         compose = true
     }
+
+    applicationVariants.all {
+        outputs.all {
+            (this as com.android.build.gradle.internal.api.BaseVariantOutputImpl).outputFileName =
+                "sk0711-graph-${defaultConfig.versionName}-${buildType.name}.apk"
+        }
+    }
 }
 
 dependencies {
@@ -40,4 +47,6 @@ dependencies {
     implementation(libs.bundles.androidx.lifeycle)
     implementation(libs.androidx.activity.compose)
     implementation(libs.bundles.compose.ui)
+
+    testImplementation(libs.junit)
 }

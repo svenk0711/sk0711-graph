@@ -2,7 +2,20 @@
 <ExtensionInfo
     displayName="@string/extension_name"
     icon="@drawable/ic_launcher_foreground"
-    id="template-id"
+    id="sk0711-graph"
     scansDevices="false">
-    <!-- DataType ... -->
+
+    <DataType
+        typeId="hr-zone-graph"
+        displayName="@string/hr_field_name"
+        description="@string/hr_field_desc"
+        graphical="true"
+        icon="@drawable/ic_launcher_foreground" />
+
+    <DataType
+        typeId="power-zone-graph"
+        displayName="@string/power_field_name"
+        description="@string/power_field_desc"
+        graphical="true"
+        icon="@drawable/ic_launcher_foreground" />
 </ExtensionInfo>

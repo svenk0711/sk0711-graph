@@ -9,3 +9,16 @@
 .cxx
 local.properties
 /app/release
+/app/build
+
+# Local development docs (not published)
+CLAUDE.md
+API_VERIFIED.md
+ARCHITECTURE.md
+DECISIONS.md
+DESIGN.md
+SETUP.md
+ZONES.md
+Beispielbild.png
+skalierung1.jpg
+/memory/

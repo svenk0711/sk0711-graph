@@ -21,5 +21,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Karoo Extension Template"
+rootProject.name = "sk0711-graph"
 include("app")
