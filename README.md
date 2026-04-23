@@ -48,8 +48,7 @@ On the Karoo itself (no ADB needed):
 
 ## Known issues
 
-- Tap-to-toggle sometimes does not react or reacts with a delay. A tap may be missed entirely or the window may cycle only after a short pause. Tap again if nothing happens.
-- Layout scaling is not yet ideal: at certain field heights/widths, the **1min / 5min / Full** window label can be overlapped by the current HR or power value.
+None currently tracked.
 
 ## Build from source
 
@@ -68,7 +67,7 @@ Then:
 ./gradlew assembleDebug
 ```
 
-Output: `app/build/outputs/apk/debug/sk0711-graph-0.1.3-debug.apk`.
+Output: `app/build/outputs/apk/debug/sk0711-graph-0.1.4-debug.apk`.
 
 ## License
 
