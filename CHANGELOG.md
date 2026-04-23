@@ -3,6 +3,19 @@
 All notable changes to this extension are documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project uses semantic versioning.
 
+## [0.1.4] — 2026-04-23
+
+### Added
+- Redesigned app preview screen: shows live HR and Power graphs with their window labels plus a short usage hint. The page is scrollable and has a small back-arrow touch target at the bottom-left.
+- App launcher icon refreshed.
+
+### Changed
+- Graph current-value text and AVG/MAX labels switched from Roboto Bold to Roboto Regular for a cleaner look.
+
+### Fixed
+- Tap-to-toggle time window on the ride screen is reliable again. Each field now uses a unique broadcast action (`ACTION_TOGGLE_HR`, `ACTION_TOGGLE_POWER`) with a cached `PendingIntent` and a manifest-declared `BroadcastReceiver` — pattern borrowed from Karoo-KSafe. Click target is the inner `ImageView` (not a wrapper) and is only attached when `config.preview == false`, so long-press-to-rearrange on the Karoo profile editor keeps working.
+- Window label (1 min / 5 min / Full) no longer overlaps the current value or AVG/MAX at narrow field heights — it shrinks to fit the available space between the two columns and is omitted entirely below a minimum readable size.
+
 ## [0.1.3] — 2026-04-19
 
 ### Added

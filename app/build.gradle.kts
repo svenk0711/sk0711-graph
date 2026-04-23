@@ -12,8 +12,8 @@ android {
         applicationId = "com.sk0711.graph"
         minSdk = 23
         targetSdk = 34
-        versionCode = 1
-        versionName = "0.1.3"
+        versionCode = 2
+        versionName = "0.1.4"
     }
 
     buildTypes {

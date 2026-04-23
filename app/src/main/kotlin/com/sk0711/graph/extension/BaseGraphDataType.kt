@@ -47,6 +47,7 @@ abstract class BaseGraphDataType(
     private val sampleSignal = MutableStateFlow(0L)
     private val avgFlow = MutableStateFlow(0)
     private val maxFlow = MutableStateFlow(0)
+    private var cachedTogglePendingIntent: PendingIntent? = null
 
     fun startCollecting(scope: CoroutineScope) {
         if (kind == GraphRenderer.Kind.POWER) smoother = PowerSmoother()
@@ -155,20 +156,30 @@ abstract class BaseGraphDataType(
         )
         val rv = RemoteViews(context.packageName, R.layout.field_graph)
         rv.setImageViewBitmap(R.id.graph, bitmap)
-        rv.setOnClickPendingIntent(R.id.graph, togglePendingIntent(context))
+        if (!config.preview) {
+            rv.setOnClickPendingIntent(R.id.graph, togglePendingIntent(context))
+        }
         return rv
     }
 
     private fun togglePendingIntent(context: Context): PendingIntent {
-        val intent = Intent(HrPowerExtension.ACTION_TOGGLE_WINDOW).apply {
-            setPackage(context.packageName)
-            putExtra(HrPowerExtension.EXTRA_FIELD_ID, typeId)
+        cachedTogglePendingIntent?.let { return it }
+        val action = when (kind) {
+            GraphRenderer.Kind.HR -> HrPowerExtension.ACTION_TOGGLE_HR
+            GraphRenderer.Kind.POWER -> HrPowerExtension.ACTION_TOGGLE_POWER
         }
-        return PendingIntent.getBroadcast(
+        val requestCode = when (kind) {
+            GraphRenderer.Kind.HR -> 101
+            GraphRenderer.Kind.POWER -> 102
+        }
+        val intent = Intent(action).setPackage(context.packageName)
+        val pi = PendingIntent.getBroadcast(
             context,
-            typeId.hashCode(),
+            requestCode,
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE,
         )
+        cachedTogglePendingIntent = pi
+        return pi
     }
 }

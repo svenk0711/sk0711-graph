@@ -41,7 +41,7 @@ object GraphRenderer {
 
         val statPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = textColor
-            typeface = Typeface.DEFAULT_BOLD
+            typeface = Typeface.DEFAULT
             textSize = statTextSize
             style = Paint.Style.FILL
         }
@@ -65,7 +65,7 @@ object GraphRenderer {
 
         val valuePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
             color = textColor
-            typeface = Typeface.DEFAULT_BOLD
+            typeface = Typeface.DEFAULT
             textSize = h * 0.35f
             style = Paint.Style.FILL
         }
@@ -111,16 +111,22 @@ object GraphRenderer {
         canvas.drawText(maxText, maxX, maxBaseline, statPaint)
 
         if (!windowLabel.isNullOrEmpty()) {
-            val windowBounds = Rect().also { windowPaint.getTextBounds(windowLabel, 0, windowLabel.length, it) }
-            val windowWidth = windowPaint.measureText(windowLabel)
             val leftColRight = valueTextX + valueWidth
-            val centerLeft = leftColRight + padPx * 0.6f
-            val centerRight = rightColLeft - padPx * 0.6f
+            val centerLeft = leftColRight + padPx * 0.8f
+            val centerRight = rightColLeft - padPx * 0.8f
             val available = centerRight - centerLeft
-            if (available >= windowWidth) {
-                val wx = centerLeft + (available - windowWidth) / 2f
-                val wy = padPx + windowBounds.height()
-                canvas.drawText(windowLabel, wx, wy, windowPaint)
+            if (available > 0f) {
+                var labelWidth = windowPaint.measureText(windowLabel)
+                if (labelWidth > available) {
+                    windowPaint.textSize *= available / labelWidth
+                    labelWidth = windowPaint.measureText(windowLabel)
+                }
+                if (windowPaint.textSize >= h * 0.06f) {
+                    val windowBounds = Rect().also { windowPaint.getTextBounds(windowLabel, 0, windowLabel.length, it) }
+                    val wx = centerLeft + (available - labelWidth) / 2f
+                    val wy = padPx + windowBounds.height()
+                    canvas.drawText(windowLabel, wx, wy, windowPaint)
+                }
             }
         }
 

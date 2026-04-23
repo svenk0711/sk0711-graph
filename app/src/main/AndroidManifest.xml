@@ -29,6 +29,15 @@
                 android:name="io.hammerhead.karooext.EXTENSION_INFO"
                 android:resource="@xml/extension_info" />
         </service>
+
+        <receiver
+            android:name=".extension.TapReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.sk0711.graph.TOGGLE_HR" />
+                <action android:name="com.sk0711.graph.TOGGLE_POWER" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
