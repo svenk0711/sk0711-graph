@@ -18,7 +18,7 @@ Tested on Karoo 3, compatible with Karoo 2.
 
 ## Install
 
-Download `sk0711-graph-0.1.3-debug.apk` from the [Releases](../../releases) page.
+Download `sk0711-graph-0.1.4-debug.apk` from the [Releases](../../releases) page.
 
 > The released APK is a **debug build** — signed with Android's generic debug key rather than a stable release key. This is standard practice for sideloaded Karoo extensions and means the file name ends in `-debug.apk`. It is fully functional; the `-debug` suffix is a packaging detail, not a quality signal. If the signing story changes in a future release, it will be noted here.
 
@@ -26,7 +26,7 @@ Download `sk0711-graph-0.1.3-debug.apk` from the [Releases](../../releases) page
 **Karoo 2:** install via ADB:
 
 ```
-adb install -r sk0711-graph-0.1.3-debug.apk
+adb install -r sk0711-graph-0.1.4-debug.apk
 ```
 
 Then in the Karoo ride-page editor, open the data field picker, find **sk0711-graph**, and add **HR Zone Graph** and/or **Power Zone Graph** to a page.
