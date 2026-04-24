@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="app-icon.png" alt="sk0711-graph app icon" width="120">
+</p>
+
 # sk0711-graph
 
 A [Hammerhead Karoo](https://hammerhead.io/) extension that adds two graphical data fields showing the recent history of heart rate and power as a zone-colored curve.
