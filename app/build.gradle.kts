@@ -12,8 +12,8 @@ android {
         applicationId = "com.sk0711.graph"
         minSdk = 23
         targetSdk = 34
-        versionCode = 2
-        versionName = "0.1.4"
+        versionCode = 3
+        versionName = "0.1.5"
     }
 
     buildTypes {
@@ -44,6 +44,7 @@ android {
 dependencies {
     implementation(libs.hammerhead.karoo.ext)
     implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.datastore.preferences)
     implementation(libs.bundles.androidx.lifeycle)
     implementation(libs.androidx.activity.compose)
     implementation(libs.bundles.compose.ui)

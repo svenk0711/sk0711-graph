@@ -40,6 +40,7 @@ abstract class BaseGraphDataType(
     protected abstract val zoneDataType: String
     protected abstract val avgDataType: String
     protected abstract val maxDataType: String
+    protected open val maxLabel: String = "MAX"
     protected abstract val kind: GraphRenderer.Kind
 
     private val buffer = DataBuffer()
@@ -153,6 +154,7 @@ abstract class BaseGraphDataType(
             kind = kind,
             isDark = isDark,
             windowLabel = window.label,
+            maxLabel = maxLabel,
         )
         val rv = RemoteViews(context.packageName, R.layout.field_graph)
         rv.setImageViewBitmap(R.id.graph, bitmap)

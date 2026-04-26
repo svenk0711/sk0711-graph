@@ -10,15 +10,24 @@ class PowerZoneGraphDataType(
     karooSystem: KarooSystemService,
     timeWindowState: StateFlow<TimeWindow>,
     extension: String,
-) : BaseGraphDataType(karooSystem, timeWindowState, extension, TYPE_ID) {
+    private val useNp: Boolean = false,
+) : BaseGraphDataType(
+    karooSystem,
+    timeWindowState,
+    extension,
+    if (useNp) TYPE_ID_NP else TYPE_ID,
+) {
 
     override val valueDataType: String = DataType.Type.POWER
     override val zoneDataType: String = DataType.Type.POWER_ZONE
     override val avgDataType: String = DataType.Type.AVERAGE_POWER
-    override val maxDataType: String = DataType.Type.MAX_POWER
+    override val maxDataType: String =
+        if (useNp) DataType.Type.NORMALIZED_POWER else DataType.Type.MAX_POWER
+    override val maxLabel: String = if (useNp) "NP" else "MAX"
     override val kind: GraphRenderer.Kind = GraphRenderer.Kind.POWER
 
     companion object {
         const val TYPE_ID = "power-zone-graph"
+        const val TYPE_ID_NP = "power-zone-graph-np"
     }
 }

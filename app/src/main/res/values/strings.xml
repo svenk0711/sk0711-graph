@@ -6,4 +6,6 @@
     <string name="hr_field_desc">Heart rate curve with zone coloring</string>
     <string name="power_field_name">Power Zone Graph</string>
     <string name="power_field_desc">Power curve with zone coloring</string>
+    <string name="power_field_name_np">Power Zone Graph (NP)</string>
+    <string name="power_field_desc_np">Power curve with zone coloring; shows AVG and Normalized Power</string>
 </resources>

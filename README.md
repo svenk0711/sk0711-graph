@@ -14,15 +14,16 @@ Tested on Karoo 3, compatible with Karoo 2.
 
 ## Features
 
-- **HR Zone Graph** and **Power Zone Graph** as separate graphical data fields.
+- **HR Zone Graph**, **Power Zone Graph** and **Power Zone Graph (NP)** as separate graphical data fields. The (NP) variant shows AVG and **Normalized Power** instead of MAX — useful for time trials.
 - Curve color follows the Karoo zone of each sample (5 HR zones, 7 power zones).
-- Current value, average, and max shown alongside the curve. AVG/MAX are read from the Karoo's own streams (`AVERAGE_HR`, `MAX_HR`, `AVERAGE_POWER`, `MAX_POWER`) so they match the values other data fields on the same page display.
+- Current value, average, and max shown alongside the curve. AVG/MAX (or AVG/NP) are read from the Karoo's own streams (`AVERAGE_HR`, `MAX_HR`, `AVERAGE_POWER`, `MAX_POWER`, `NORMALIZED_POWER`) so they match the values other data fields on the same page display.
 - **Tap a field** to cycle its time window: 1 min → 5 min → Full ride. Each field keeps its own window.
+- **Default time window** is configurable in the app's preview screen (1 min / 5 min / Full) and persists across rides.
 - Power curve uses a 3-second rolling average (HR is not smoothed).
 
 ## Install
 
-Download `sk0711-graph-0.1.4-debug.apk` from the [Releases](../../releases) page.
+Download `sk0711-graph-0.1.5-debug.apk` from the [Releases](../../releases) page.
 
 > The released APK is a **debug build** — signed with Android's generic debug key rather than a stable release key. This is standard practice for sideloaded Karoo extensions and means the file name ends in `-debug.apk`. It is fully functional; the `-debug` suffix is a packaging detail, not a quality signal. If the signing story changes in a future release, it will be noted here.
 
@@ -30,10 +31,10 @@ Download `sk0711-graph-0.1.4-debug.apk` from the [Releases](../../releases) page
 **Karoo 2:** install via ADB:
 
 ```
-adb install -r sk0711-graph-0.1.4-debug.apk
+adb install -r sk0711-graph-0.1.5-debug.apk
 ```
 
-Then in the Karoo ride-page editor, open the data field picker, find **sk0711-graph**, and add **HR Zone Graph** and/or **Power Zone Graph** to a page.
+Then in the Karoo ride-page editor, open the data field picker, find **sk0711-graph**, and add **HR Zone Graph**, **Power Zone Graph**, and/or **Power Zone Graph (NP)** to a page.
 
 ## Uninstall
 
@@ -52,7 +53,7 @@ On the Karoo itself (no ADB needed):
 
 ## Known issues
 
-- **Updating from 0.1.3 to 0.1.4 fails with `INSTALL_FAILED_UPDATE_INCOMPATIBLE`.** The two releases were signed with different debug keystores, so Android refuses the in-place update. **Workaround:** uninstall 0.1.3 first, then sideload 0.1.4. Your existing data field placements on Karoo ride pages are preserved across the reinstall — the field IDs are unchanged. From 0.1.4 onward all builds use the same keystore and in-place updates will work normally.
+- **Updating from 0.1.3 to any later version fails with `INSTALL_FAILED_UPDATE_INCOMPATIBLE`.** 0.1.3 was signed with a different debug keystore, so Android refuses the in-place update. **Workaround:** uninstall 0.1.3 first, then sideload the new version. Your existing data field placements on Karoo ride pages are preserved across the reinstall — the field IDs are unchanged. From 0.1.4 onward all builds use the same keystore, so 0.1.4 → 0.1.5 (and later) updates work normally.
 
 ## Build from source
 
@@ -71,7 +72,7 @@ Then:
 ./gradlew assembleDebug
 ```
 
-Output: `app/build/outputs/apk/debug/sk0711-graph-0.1.4-debug.apk`.
+Output: `app/build/outputs/apk/debug/sk0711-graph-0.1.5-debug.apk`.
 
 ## License
 

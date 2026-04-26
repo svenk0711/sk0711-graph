@@ -3,6 +3,20 @@
 All notable changes to this extension are documented here.
 Format based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/); this project uses semantic versioning.
 
+## [0.1.5] — 2026-04-26
+
+### Added
+- **Power Zone Graph (NP)** — a second power data field that shows AVG and **Normalized Power** instead of MAX. Picked from the Karoo profile editor like any other field; user chooses which variant to place. Original "Power Zone Graph" with AVG/MAX is unchanged.
+
+  <img src="pwrgraphnp.jpg" alt="Karoo data-field picker showing the new Power Zone Graph (NP) entry with AVG and NP labels" width="320">
+
+- **Default time-window setting** — picker in the app's preview screen (1 min / 5 min / Full). The chosen value is persisted via DataStore and applied at service start to both HR and Power fields. The on-ride tap-toggle still cycles freely from there.
+
+  <img src="defaulttime.jpg" alt="Karoo running the app's preview screen with the new default-time-window picker (1 min / 5 min / Full) at the bottom" width="280">
+
+### Changed
+- `GraphRenderer.render` accepts a `maxLabel` argument (default `"MAX"`); the NP variant passes `"NP"`. Existing call sites unaffected by the default.
+
 ## [0.1.4] — 2026-04-23
 
 ### Added

@@ -4,6 +4,7 @@ import io.hammerhead.karooext.KarooSystemService
 import io.hammerhead.karooext.extension.DataTypeImpl
 import io.hammerhead.karooext.extension.KarooExtension
 import com.sk0711.graph.graph.TimeWindow
+import com.sk0711.graph.settings.AppSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -11,8 +12,10 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.launch
 
-class HrPowerExtension : KarooExtension(EXTENSION_ID, "0.1.3") {
+class HrPowerExtension : KarooExtension(EXTENSION_ID, "0.1.5") {
 
     private lateinit var karooSystem: KarooSystemService
     private val collectScope = CoroutineScope(Dispatchers.IO + SupervisorJob())
@@ -26,7 +29,8 @@ class HrPowerExtension : KarooExtension(EXTENSION_ID, "0.1.3") {
     override val types: List<DataTypeImpl> by lazy {
         listOf(
             HrZoneGraphDataType(karooSystem, hrTimeWindow, EXTENSION_ID),
-            PowerZoneGraphDataType(karooSystem, powerTimeWindow, EXTENSION_ID),
+            PowerZoneGraphDataType(karooSystem, powerTimeWindow, EXTENSION_ID, useNp = false),
+            PowerZoneGraphDataType(karooSystem, powerTimeWindow, EXTENSION_ID, useNp = true),
         )
     }
 
@@ -43,6 +47,11 @@ class HrPowerExtension : KarooExtension(EXTENSION_ID, "0.1.3") {
         instance = this
         karooSystem = KarooSystemService(applicationContext)
         karooSystem.connect()
+        collectScope.launch {
+            val saved = AppSettings.defaultTimeWindowFlow(applicationContext).first()
+            _hrTimeWindow.value = saved
+            _powerTimeWindow.value = saved
+        }
         types.filterIsInstance<BaseGraphDataType>().forEach { it.startCollecting(collectScope) }
     }
 

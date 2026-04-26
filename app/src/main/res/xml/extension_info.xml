@@ -18,4 +18,11 @@
         description="@string/power_field_desc"
         graphical="true"
         icon="@drawable/ic_launcher_foreground" />
+
+    <DataType
+        typeId="power-zone-graph-np"
+        displayName="@string/power_field_name_np"
+        description="@string/power_field_desc_np"
+        graphical="true"
+        icon="@drawable/ic_launcher_foreground" />
 </ExtensionInfo>

@@ -28,6 +28,7 @@ object GraphRenderer {
         kind: Kind,
         isDark: Boolean,
         windowLabel: String? = null,
+        maxLabel: String = "MAX",
     ): Bitmap {
         val textColor = if (isDark) Color.WHITE else Color.BLACK
         val w = widthPx.coerceAtLeast(1)
@@ -54,7 +55,7 @@ object GraphRenderer {
 
         val currentText = samples.lastOrNull()?.value?.toInt()?.toString().orEmpty()
         val avgText = "AVG $avg"
-        val maxText = "MAX $max"
+        val maxText = "$maxLabel $max"
 
         val avgBounds = Rect().also { statPaint.getTextBounds(avgText, 0, avgText.length, it) }
         val maxBounds = Rect().also { statPaint.getTextBounds(maxText, 0, maxText.length, it) }
