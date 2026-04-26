@@ -52,7 +52,7 @@ On the Karoo itself (no ADB needed):
 
 ## Known issues
 
-None currently tracked.
+- **Updating from 0.1.3 to 0.1.4 fails with `INSTALL_FAILED_UPDATE_INCOMPATIBLE`.** The two releases were signed with different debug keystores, so Android refuses the in-place update. **Workaround:** uninstall 0.1.3 first, then sideload 0.1.4. Your existing data field placements on Karoo ride pages are preserved across the reinstall — the field IDs are unchanged. From 0.1.4 onward all builds use the same keystore and in-place updates will work normally.
 
 ## Build from source
 
