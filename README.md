@@ -54,6 +54,7 @@ On the Karoo itself (no ADB needed):
 ## Known issues
 
 - **Updating from 0.1.3 to any later version fails with `INSTALL_FAILED_UPDATE_INCOMPATIBLE`.** 0.1.3 was signed with a different debug keystore, so Android refuses the in-place update. **Workaround:** uninstall 0.1.3 first, then sideload the new version. Your existing data field placements on Karoo ride pages are preserved across the reinstall — the field IDs are unchanged. From 0.1.4 onward all builds use the same keystore, so 0.1.4 → 0.1.5 (and later) updates work normally.
+- **Extension may restart on long rides (~4 h+).** On extended rides, Karoo can display "Application restarted" one or more times. The recording itself is unaffected; only the curve buffer is reset. Likely cause is memory pressure from per-frame bitmap allocations in the renderer. Tracked in [#5](https://github.com/svenk0711/sk0711-graph/issues/5).
 
 ## Build from source
 
